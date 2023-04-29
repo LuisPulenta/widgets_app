@@ -45,13 +45,8 @@ const appMenuItems = <MenuItem>[
       link: '/ui-controls',
       icon: Icons.car_rental_outlined),
   MenuItem(
-      title: 'UI Controls + Tiles',
-      subtitle: 'Una serie de controles de Flutter',
-      link: '/ui-controls',
-      icon: Icons.car_rental_outlined),
-  MenuItem(
-      title: 'Introducción a la aplicación',
-      subtitle: 'Pequeño tutorial introductorio',
-      link: '/tutorial',
-      icon: Icons.accessible_rounded),
+      title: 'Infinite Scroll y Pull',
+      subtitle: 'Listas infinitas y pull to refresh',
+      link: '/infinite',
+      icon: Icons.list_alt_rounded),
 ];

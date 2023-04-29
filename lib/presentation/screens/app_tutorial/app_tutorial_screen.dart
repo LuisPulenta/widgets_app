@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -16,11 +17,49 @@ final slides = <SlideInfo>[
       'assets/3.png'),
 ];
 
-class AppTutorialScreen extends StatelessWidget {
+class AppTutorialScreen extends StatefulWidget {
   static const String name = 'app_tutorial_screen';
 
   const AppTutorialScreen({Key? key}) : super(key: key);
 
+  @override
+  State<AppTutorialScreen> createState() => _AppTutorialScreenState();
+}
+
+class _AppTutorialScreenState extends State<AppTutorialScreen> {
+//---------------------------------------------------------
+//-------------------- Variables --------------------------
+//---------------------------------------------------------
+  PageController pageController = PageController();
+  bool endReached = false;
+
+//---------------------------------------------------------
+//-------------------- initState --------------------------
+//---------------------------------------------------------
+
+  @override
+  void initState() {
+    super.initState();
+    pageController.addListener(() {
+      final page = pageController.page ?? 0;
+      if (!endReached && page >= slides.length - 1.5) {
+        endReached = true;
+        setState(() {});
+      } else {
+        endReached = false;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+//---------------------------------------------------------
+//-------------------- Pantalla ---------------------------
+//---------------------------------------------------------
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +67,7 @@ class AppTutorialScreen extends StatelessWidget {
       body: Stack(
         children: [
           PageView(
+            controller: pageController,
             physics: const BouncingScrollPhysics(),
             children: slides
                 .map((slideData) => _Slide(
@@ -43,7 +83,22 @@ class AppTutorialScreen extends StatelessWidget {
               child: const Text('Salir'),
               onPressed: () => context.pop(),
             ),
-          )
+          ),
+          endReached
+              ? Positioned(
+                  right: 20,
+                  bottom: 50,
+                  child: FadeInRight(
+                    duration: Duration(milliseconds: 400),
+                    from: 15,
+                    delay: const Duration(seconds: 1),
+                    child: FilledButton(
+                      child: const Text('Comenzar'),
+                      onPressed: () => context.pop(),
+                    ),
+                  ),
+                )
+              : Container(),
         ],
       ),
     );
