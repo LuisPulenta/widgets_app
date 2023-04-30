@@ -27,21 +27,21 @@ class _ProgressView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
-          const SizedBox(
+        children: const [
+          SizedBox(
             height: 10,
           ),
-          const Text('Circular Progress Indicator'),
-          const SizedBox(
+          Text('Circular Progress Indicator'),
+          SizedBox(
             height: 10,
           ),
-          const CircularProgressIndicator(
+          CircularProgressIndicator(
               strokeWidth: 2, backgroundColor: Colors.black45),
-          const SizedBox(
+          SizedBox(
             height: 10,
           ),
-          const Text('Progress Indicator controlado'),
-          const SizedBox(
+          Text('Progress Indicator controlado'),
+          SizedBox(
             height: 10,
           ),
           _ControlledProgressIndicator(),
@@ -57,14 +57,14 @@ class _ControlledProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<double>(
-        stream: Stream.periodic(Duration(milliseconds: 300), (value) {
+        stream: Stream.periodic(const Duration(milliseconds: 300), (value) {
           return (value * 2 / 100);
         }).takeWhile((value) => value < 100),
         builder: (context, snapshot) {
           final progressValue = snapshot.data ?? 0;
 
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
