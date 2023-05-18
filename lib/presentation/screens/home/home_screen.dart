@@ -29,18 +29,18 @@ class _HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: appMenuItems.length,
         itemBuilder: (context, index) {
           final menuItem = appMenuItems[index];
-          return _customListTile(menuItem: menuItem);
+          return _CustomListTile(menuItem: menuItem);
         });
   }
 }
 
 //------------------------ _customListTile ---------------------------
-class _customListTile extends StatelessWidget {
-  const _customListTile({
+class _CustomListTile extends StatelessWidget {
+  const _CustomListTile({
     required this.menuItem,
   });
 
@@ -67,7 +67,9 @@ class _customListTile extends StatelessWidget {
         //     builder: (context) => const CardsScreen(),
         //   ),
         // );
+
         //Navigator.pushNamed(context, menuItem.link);
+
         context.push(menuItem.link);
         //context.pushNamed(CardsScreen.name);
       },

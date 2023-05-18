@@ -13,7 +13,7 @@ class MenuItem {
       required this.icon});
 }
 
-const appMenuItems = <MenuItem>[
+const List<MenuItem> appMenuItems = <MenuItem>[
   MenuItem(
       title: 'Riverpod Counter',
       subtitle: 'Introducción a Riverpod',

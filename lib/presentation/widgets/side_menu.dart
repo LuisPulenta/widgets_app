@@ -57,7 +57,7 @@ class _SideMenuState extends State<SideMenu> {
           ),
           const Padding(
             padding: EdgeInsets.fromLTRB(28, 10, 16, 10),
-            child: const Text('More options'),
+            child: Text('More options'),
           ),
           ...appMenuItems.sublist(3).map(
                 (e) => NavigationDrawerDestination(

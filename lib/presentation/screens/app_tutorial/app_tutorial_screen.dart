@@ -89,7 +89,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
                   right: 20,
                   bottom: 50,
                   child: FadeInRight(
-                    duration: Duration(milliseconds: 400),
+                    duration: const Duration(milliseconds: 400),
                     from: 15,
                     delay: const Duration(seconds: 1),
                     child: FilledButton(
@@ -122,10 +122,7 @@ class _Slide extends StatelessWidget {
   final String caption;
   final String imageUrl;
   const _Slide(
-      {super.key,
-      required this.title,
-      required this.caption,
-      required this.imageUrl});
+      {required this.title, required this.caption, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {

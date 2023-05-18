@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const cards = <Map<String, dynamic>>[
+const List<Map<String, dynamic>> cards = <Map<String, dynamic>>[
   {'elevation': 0.0, 'label': 'Elevation 0'},
   {'elevation': 1.0, 'label': 'Elevation 1'},
   {'elevation': 2.0, 'label': 'Elevation 2'},
@@ -19,16 +19,14 @@ class CardsScreen extends StatelessWidget {
         title: const Text('Cards'),
         centerTitle: true,
       ),
-      body: _CardView(),
+      body: const _CardView(),
     );
   }
 }
 
 //-----------------------------------------------------------
 class _CardView extends StatelessWidget {
-  const _CardView({
-    super.key,
-  });
+  const _CardView();
 
   @override
   Widget build(BuildContext context) {
@@ -73,14 +71,14 @@ class _CardType1 extends StatelessWidget {
   final String label;
   final double elevation;
 
-  const _CardType1({super.key, required this.label, required this.elevation});
+  const _CardType1({required this.label, required this.elevation});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: elevation,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(10, 5, 10, 10),
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
         child: Column(
           children: [
             Align(
@@ -106,7 +104,7 @@ class _CardType2 extends StatelessWidget {
   final String label;
   final double elevation;
 
-  const _CardType2({super.key, required this.label, required this.elevation});
+  const _CardType2({required this.label, required this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +113,7 @@ class _CardType2 extends StatelessWidget {
       shape: RoundedRectangleBorder(
         side: BorderSide(color: colors.outline),
         borderRadius: const BorderRadius.all(
-          Radius.circular(20),
+          Radius.circular(10),
         ),
       ),
       elevation: elevation,
@@ -146,7 +144,7 @@ class _CardType3 extends StatelessWidget {
   final String label;
   final double elevation;
 
-  const _CardType3({super.key, required this.label, required this.elevation});
+  const _CardType3({required this.label, required this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +153,7 @@ class _CardType3 extends StatelessWidget {
       color: colors.surfaceVariant,
       elevation: elevation,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(10, 5, 10, 10),
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
         child: Column(
           children: [
             Align(
@@ -181,7 +179,7 @@ class _CardType4 extends StatelessWidget {
   final String label;
   final double elevation;
 
-  const _CardType4({super.key, required this.label, required this.elevation});
+  const _CardType4({required this.label, required this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -191,14 +189,14 @@ class _CardType4 extends StatelessWidget {
       child: Stack(
         children: [
           Image.network(
-            'https://picsum.photos/id/${elevation.toInt()}/600/350',
-            height: 350,
+            'https://picsum.photos/id/${elevation.toInt()}/600/200',
+            height: 200,
             fit: BoxFit.cover,
           ),
           Align(
             alignment: Alignment.topRight,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius:
                     BorderRadius.only(bottomLeft: Radius.circular(20)),

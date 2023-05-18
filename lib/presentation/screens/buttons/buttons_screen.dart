@@ -25,9 +25,7 @@ class ButtonsScreen extends StatelessWidget {
 
 //--------------------- _ButtonsView --------------------------
 class _ButtonsView extends StatelessWidget {
-  const _ButtonsView({
-    super.key,
-  });
+  const _ButtonsView();
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +40,17 @@ class _ButtonsView extends StatelessWidget {
           alignment: WrapAlignment.center,
           children: [
             ElevatedButton(onPressed: () {}, child: const Text('Elevated')),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: colors.inversePrimary,
+                minimumSize: const Size(50, 40),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              child: const Text('Elevated con style'),
+            ),
             const ElevatedButton(
                 onPressed: null, child: Text('Elevated Disabled')),
             ElevatedButton.icon(
