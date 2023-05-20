@@ -23,26 +23,27 @@ class _ProgressView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Center(
       child: Column(
-        children: const [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 10,
           ),
-          Text('Circular Progress Indicator'),
-          SizedBox(
+          const Text('Circular Progress Indicator'),
+          const SizedBox(
             height: 10,
           ),
           CircularProgressIndicator(
-              strokeWidth: 2, backgroundColor: Colors.black45),
-          SizedBox(
+              strokeWidth: 2, backgroundColor: colors.inversePrimary),
+          const SizedBox(
             height: 10,
           ),
-          Text('Progress Indicator controlado'),
-          SizedBox(
+          const Text('Progress Indicator controlado'),
+          const SizedBox(
             height: 10,
           ),
-          _ControlledProgressIndicator(),
+          const _ControlledProgressIndicator(),
         ],
       ),
     );
@@ -56,6 +57,7 @@ class _ControlledProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder<double>(
         stream: Stream.periodic(const Duration(milliseconds: 300), (value) {
+          print(value * 2 / 100);
           return (value * 2 / 100);
         }).takeWhile((value) => value < 100),
         builder: (context, snapshot) {

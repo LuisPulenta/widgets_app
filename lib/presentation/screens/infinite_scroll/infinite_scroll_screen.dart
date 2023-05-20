@@ -108,7 +108,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     await Future.delayed(const Duration(milliseconds: 2000));
     addFiveImages();
     isLoading = false;
-    //if (!isMounted) return;
+    if (!isMounted) return;
     setState(() {});
     moveScrollToBottom();
   }

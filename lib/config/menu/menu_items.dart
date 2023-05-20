@@ -55,6 +55,11 @@ const List<MenuItem> appMenuItems = <MenuItem>[
       link: '/infinite',
       icon: Icons.list_alt_rounded),
   MenuItem(
+      title: 'Introducción a la aplicación',
+      subtitle: 'Pequeño tutorial introductivo',
+      link: '/tutorial',
+      icon: Icons.list_alt_rounded),
+  MenuItem(
       title: 'Cambiar tema',
       subtitle: 'Cambiar tema de la Aplicación',
       link: '/theme-changer',
