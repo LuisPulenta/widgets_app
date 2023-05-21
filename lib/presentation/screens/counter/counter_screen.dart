@@ -11,6 +11,8 @@ class CounterScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final int clickCounter = ref.watch(counterProvider);
+    final bool isValid = ref.watch(boolProvider);
+    final String name = ref.watch(stringProvider);
     final bool isDarkmode = ref.watch(isDarkmodeProvider);
 
     return Scaffold(
@@ -23,19 +25,22 @@ class CounterScreen extends ConsumerWidget {
                   ? const Icon(Icons.dark_mode_outlined)
                   : const Icon(Icons.light_mode_outlined),
               onPressed: () {
-                ref.read(isDarkmodeProvider.notifier).state =
-                    !ref.read(isDarkmodeProvider.notifier).state;
+                ref.read(isDarkmodeProvider.notifier).state = !isDarkmode;
               }),
         ],
       ),
       body: Center(
-        child: Text('Valor: $clickCounter',
+        child: Text('Valor: $clickCounter $isValid $name',
             style: Theme.of(context).textTheme.titleLarge),
       ),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {
             ref.read(counterProvider.notifier).state++;
+            ref.read(boolProvider.notifier).state =
+                !ref.read(boolProvider.notifier).state;
+            ref.read(stringProvider.notifier).state =
+                ref.read(stringProvider.notifier).state + 'x';
             //ref.read(counterProvider.notifier).update((state) => state + 1);
           }),
     );
