@@ -13,6 +13,7 @@ class ButtonsScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: const _ButtonsView(),
+      //--------------------------------------------------
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.pop();
@@ -39,7 +40,10 @@ class _ButtonsView extends StatelessWidget {
           spacing: 10,
           alignment: WrapAlignment.center,
           children: [
+            //--------------------------------------------------
             ElevatedButton(onPressed: () {}, child: const Text('Elevated')),
+
+            //--------------------------------------------------
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -51,32 +55,52 @@ class _ButtonsView extends StatelessWidget {
               ),
               child: const Text('Elevated con style'),
             ),
+
+            //--------------------------------------------------
             const ElevatedButton(
                 onPressed: null, child: Text('Elevated Disabled')),
+
+            //--------------------------------------------------
             ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.access_alarm_outlined),
               label: const Text('Elevated.icon'),
             ),
+
+            //--------------------------------------------------
             FilledButton(onPressed: () {}, child: const Text('Filled')),
+
+            //--------------------------------------------------
             FilledButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.access_alarm_outlined),
                 label: const Text('Filled.icon')),
+
+            //--------------------------------------------------
             OutlinedButton(onPressed: () {}, child: const Text('Outlined')),
+
+            //--------------------------------------------------
             OutlinedButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.access_alarm_outlined),
                 label: const Text('Outlined.icon')),
+
+            //--------------------------------------------------
             TextButton(onPressed: () {}, child: const Text('Text')),
+
+            //--------------------------------------------------
             TextButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.access_alarm_outlined),
                 label: const Text('Text.icon')),
+
+            //--------------------------------------------------
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.access_alarm_outlined),
             ),
+
+            //--------------------------------------------------
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.access_alarm_outlined),
@@ -84,7 +108,12 @@ class _ButtonsView extends StatelessWidget {
                   backgroundColor: MaterialStatePropertyAll(colors.primary),
                   iconColor: const MaterialStatePropertyAll(Colors.white)),
             ),
+
+            //--------------------------------------------------
             const CustomButton(),
+
+            //--------------------------------------------------
+            const CustomButton2(),
           ],
         ),
       ),
@@ -108,6 +137,44 @@ class CustomButton extends StatelessWidget {
           child: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text('Hola Mundo', style: TextStyle(color: Colors.white)),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//--------------------------- CustomButton ---------------------------------
+class CustomButton2 extends StatelessWidget {
+  const CustomButton2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: SizedBox(
+              width: 140,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.access_alarm_outlined,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text('Hola Mundo', style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
           ),
         ),
       ),

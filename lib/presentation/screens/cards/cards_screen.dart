@@ -6,6 +6,7 @@ const List<Map<String, dynamic>> cards = <Map<String, dynamic>>[
   {'elevation': 2.0, 'label': 'Elevation 2'},
   {'elevation': 3.0, 'label': 'Elevation 3'},
   {'elevation': 4.0, 'label': 'Elevation 4'},
+  {'elevation': 5.0, 'label': 'Elevation 5'},
 ];
 
 class CardsScreen extends StatelessWidget {
@@ -113,7 +114,7 @@ class _CardType2 extends StatelessWidget {
       shape: RoundedRectangleBorder(
         side: BorderSide(color: colors.outline),
         borderRadius: const BorderRadius.all(
-          Radius.circular(10),
+          Radius.circular(20),
         ),
       ),
       elevation: elevation,

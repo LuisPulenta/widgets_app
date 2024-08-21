@@ -18,6 +18,9 @@ class SnackbarScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FilledButton.tonal(
+              style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                      Color.fromARGB(255, 220, 214, 155))),
               onPressed: () {
                 showAboutDialog(context: context, children: [
                   const Text(

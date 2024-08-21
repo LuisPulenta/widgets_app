@@ -33,9 +33,10 @@ class _UiControlsViewState extends State<_UiControlsView> {
   //------------------ Variables --------------------
   //-------------------------------------------------
   bool isDeveloper = true;
+  bool isActive = true;
   Transportation selectedTransportation = Transportation.car;
-  Sex selectedTSex = Sex.masculino;
-  bool wantsBreakfast = false;
+  Sex selectedSex = Sex.masculino;
+  bool wantsBreakfast = true;
   bool wantsLunch = false;
   bool wantsDinner = false;
 
@@ -56,6 +57,15 @@ class _UiControlsViewState extends State<_UiControlsView> {
           value: isDeveloper,
           onChanged: (value) {
             isDeveloper = !isDeveloper;
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: const Text('Is Active'),
+          subtitle: const Text('Está en actividad?'),
+          value: isActive,
+          onChanged: (value) {
+            isActive = !isActive;
             setState(() {});
           },
         ),
@@ -113,9 +123,9 @@ class _UiControlsViewState extends State<_UiControlsView> {
               child: RadioListTile(
                 title: const Text('Masculino'),
                 value: Sex.masculino,
-                groupValue: selectedTSex,
+                groupValue: selectedSex,
                 onChanged: (value) => setState(() {
-                  selectedTSex = Sex.masculino;
+                  selectedSex = Sex.masculino;
                 }),
               ),
             ),
@@ -123,9 +133,9 @@ class _UiControlsViewState extends State<_UiControlsView> {
               child: RadioListTile(
                 title: const Text('Femenino'),
                 value: Sex.femenino,
-                groupValue: selectedTSex,
+                groupValue: selectedSex,
                 onChanged: (value) => setState(() {
-                  selectedTSex = Sex.femenino;
+                  selectedSex = Sex.femenino;
                 }),
               ),
             ),

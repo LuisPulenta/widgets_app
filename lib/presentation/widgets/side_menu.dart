@@ -15,7 +15,7 @@ class _SideMenuState extends State<SideMenu> {
   //------------------- Variables ---------------------------
   //---------------------------------------------------------
 
-  int navDraweIndex = 0;
+  int navDrawerIndex = -1;
 
   //---------------------------------------------------------
   //------------------- iniState ----------------------------
@@ -29,14 +29,14 @@ class _SideMenuState extends State<SideMenu> {
     final hasNotch = MediaQuery.of(context).viewPadding.top > 35;
 
     return NavigationDrawer(
-        selectedIndex: navDraweIndex,
+        selectedIndex: navDrawerIndex,
         onDestinationSelected: (value) {
           setState(() {
-            navDraweIndex = value;
+            navDrawerIndex = value;
           });
           final menuItem = appMenuItems[value];
           context.push(menuItem.link);
-          widget.scaffoldKey.currentState!.closeDrawer();
+          widget.scaffoldKey.currentState?.closeDrawer();
         },
         children: [
           Padding(

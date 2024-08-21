@@ -40,7 +40,7 @@ class CounterScreen extends ConsumerWidget {
             ref.read(boolProvider.notifier).state =
                 !ref.read(boolProvider.notifier).state;
             ref.read(stringProvider.notifier).state =
-                ref.read(stringProvider.notifier).state + 'x';
+                '${ref.read(stringProvider.notifier).state}x';
             //ref.read(counterProvider.notifier).update((state) => state + 1);
           }),
     );

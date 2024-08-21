@@ -55,11 +55,12 @@ class _ControlledProgressIndicator extends StatelessWidget {
   const _ControlledProgressIndicator();
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return StreamBuilder<double>(
         stream: Stream.periodic(const Duration(milliseconds: 300), (value) {
-          print(value * 2 / 100);
-          return (value * 2 / 100);
-        }).takeWhile((value) => value < 100),
+          //print(value / 100 * 2);
+          return (value / 100 * 2);
+        }).takeWhile((value) => value < 1),
         builder: (context, snapshot) {
           final progressValue = snapshot.data ?? 0;
 
@@ -71,13 +72,14 @@ class _ControlledProgressIndicator extends StatelessWidget {
                 CircularProgressIndicator(
                     value: progressValue,
                     strokeWidth: 2,
-                    backgroundColor: Colors.black12),
+                    backgroundColor: colors.inversePrimary),
                 const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                     child: LinearProgressIndicator(
-                        value: progressValue, backgroundColor: Colors.black12)),
+                        value: progressValue,
+                        backgroundColor: colors.inversePrimary)),
               ],
             ),
           );
